@@ -1,0 +1,112 @@
+body{
+    background-color:rgb(27, 27, 27);
+    height: 100vh;
+    color: rgb(158, 54, 255);
+}
+#movie{
+    height: 6vh;
+    width: 100%;
+    margin-top: 5vh;
+    border-radius: 50px;
+    background-color: rgb(37, 37, 37);
+    padding-left: 15px;
+    border: solid 0px;
+
+}
+#search{
+    border: solid 0px;
+    height: 6vh;
+    width: 20vw;
+    border-radius: 50px;
+    background-color: blueviolet;
+    color: rgb(53, 0, 53);
+    margin-top: 5vh;
+    font-weight: bold;
+}
+#search:hover{
+    background-color: rgb(228, 206, 248);
+}
+#searchbar{
+    display: flex;
+    justify-content: center;
+
+}
+#frame{
+    color: white;
+}
+#error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;   
+}
+.movie{
+    justify-content:  space-around !important;
+    font-family: "Big Shoulders Inline", sans-serif;
+    font-weight: 400;
+}
+/* #plot,#release,#genre,#duration,#rate */
+
+h3 > strong {
+    color: blueviolet;
+}
+#poster{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+#title{
+    font-size: 3em;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+}
+
+#imgmovie{
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px black;
+
+}
+
+#wbtn{
+    background-color: blueviolet;
+    color: rgb(43, 1, 43);
+    border: solid 0px;
+    height: 7vh;
+    width: 25vw;
+    border-radius: 50px;
+    font-size: 1.5em;
+    
+}
+#wbtn:hover{
+    background-color: rgb(228, 206, 248);
+}
+#lbtn{
+    text-decoration: none;
+    color: rgb(39, 0, 39);
+    font-weight: bold;
+    
+}
+#watch{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto Condensed", sans-serif;
+}
+/* #rate{
+    margin-top: 10px;
+} */
+#star{
+    margin-bottom: 9.5px;
+}
+
+/* .details{
+    flex-direction: column !important;
+    align-items: center ;
+    height: 100vh;
+} */
+#cat{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
