@@ -1,6 +1,6 @@
 body{
     background-color:rgb(27, 27, 27);
-    height: 100vh;
+
     color: rgb(158, 54, 255);
 }
 #movie{
@@ -108,5 +108,5 @@ h3 > strong {
 #cat{
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+
 }
