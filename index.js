@@ -12,26 +12,31 @@ let rate = document.getElementById("rate");
 let title = document.getElementById("title");
 let watch = document.getElementById("watch");
 let cat = document.getElementById("cat");
-
+let logo = document.getElementById("catlogo");
+let watchmovie = document.getElementById("watchmovie");
+let bcat = document.getElementById("bcat");
 search.onclick = async function(){
     const key = "89c314f8";
-    var movie = document.getElementById("movie").value;
-    var apiReq= `https://www.omdbapi.com/?t=${movie}&apikey=${key}`;
+    let movie = document.getElementById("movie");
+    var apiReq= `https://www.omdbapi.com/?t=${movie.value}&apikey=${key}`;
     var request = await fetch(apiReq);
     var response = await request.json();
+
     if(response["Response"] == "True" ){
         result(response);
     }
     else if(response["Response"] == "False"){
         err();
     }
-
+    movie.value = "";
+    logo.innerHTML = "";
 }
 function result(response){
     error.innerHTML = "";
     cat.innerHTML = "";
     error.style.height = "0vh";
     title.innerHTML = response["Title"];
+    title.style.marginTop = "60px";
     poster.innerHTML = "<img src="+response["Poster"]+"alt='poster' id='imgmovie'>";
     plot.innerHTML = `<h3><strong id="infotitle">Plot : </strong>${response["Plot"]}</h3>`;
     release.innerHTML = `<h3><strong  id="infotitle">Release date : </strong>${response["Released"]}</h3>`;
@@ -44,13 +49,30 @@ function result(response){
     if(response["Type"] == "movie"){
         let watchbtn = "https://vidsrc.xyz/embed/movie/"+response["imdbID"];
         duration.innerHTML = `<h3><strong id="infotitle">Duration : </strong>${response["Runtime"]}</h3>`;
-        watch.innerHTML = `<button id="wbtn"><a href="${watchbtn}" id="lbtn">Watch</a></button>`;
+        //watch.innerHTML = `<button id="wbtn"><a href="${watchbtn}" id="lbtn" target="_blank">Watch</a></button>`;
+        fetch("blackcat.svg")
+        .then(response => response.text())
+        .then(data => {
+            bcat.innerHTML = data;
+            bcat.innerHTML += "<h1 id='enjoy'>Enjoy:)</h1>";
+            bcat.style.width = "200px";
+
+        });
+        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching"></iframe>`;
     }
     else if(response["Type"] == "series"){
         let watchbtn = "https://vidsrc.xyz/embed/tv/"+response["imdbID"];
         duration.innerHTML = `<h3><strong id="infotitle">Episode duration : </strong>${response["Runtime"]}</h3>`;
-        watch.innerHTML = `<button id="wbtn"><a href="${watchbtn}" id="lbtn">Watch</a></button>`;
+        //watch.innerHTML = `<button id="wbtn"><a href="${watchbtn}" target="_blank" id="lbtn">Watch</a></button>`;
+        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching"></iframe>`
+        fetch("blackcat.svg")
+        .then(response => response.text())
+        .then(data => {
+            bcat.innerHTML = data;
+            bcat.innerHTML += "<h1 id='enjoy'>Enjoy:)</h1>";
+            bcat.style.width = "200px";
 
+        });
     }
 }
 function err(){
