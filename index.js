@@ -76,6 +76,8 @@ function result(response){
     }
 }
 function err(){
+    bcat.innerHTML = "";
+    watchmovie.innerHTML = "";
     title.innerHTML = "";
     poster.innerHTML = "";
     plot.innerHTML = "";
