@@ -58,13 +58,13 @@ function result(response){
             bcat.style.width = "200px";
 
         });
-        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching"></iframe>`;
+        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching" allowfullscreen></iframe>`;
     }
     else if(response["Type"] == "series"){
         let watchbtn = "https://vidsrc.xyz/embed/tv/"+response["imdbID"];
         duration.innerHTML = `<h3><strong id="infotitle">Episode duration : </strong>${response["Runtime"]}</h3>`;
         //watch.innerHTML = `<button id="wbtn"><a href="${watchbtn}" target="_blank" id="lbtn">Watch</a></button>`;
-        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching"></iframe>`
+        watchmovie.innerHTML = `<iframe src="${watchbtn}" class="object-fit-none" id="watching" allowfullscreen></iframe>`
         fetch("blackcat.svg")
         .then(response => response.text())
         .then(data => {
